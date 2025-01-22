@@ -1,0 +1,357 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WypozyczalniaGier</name>
+    </assembly>
+    <members>
+        <member name="T:WypozyczalniaGier.Gra">
+            <summary>
+            Reprezentuje grę dostępną w wypożyczalni.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Gra.Tytul">
+            <summary>
+            Tytuł gry.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Gra.Gatunek">
+            <summary>
+            Gatunek gry.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Gra.Dostepnosc">
+            <summary>
+            Liczba dostępnych egzemplarzy gry.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Gra.#ctor">
+            <summary>
+            Inicjalizuje nową instancję klasy <see cref="T:WypozyczalniaGier.Gra"/>.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Gra.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Inicjalizuje nową instancję klasy <see cref="T:WypozyczalniaGier.Gra"/> z określonymi wartościami.
+            </summary>
+            <param name="tytul">Tytuł gry.</param>
+            <param name="gatunek">Gatunek gry.</param>
+            <param name="liczba">Liczba dostępnych egzemplarzy gry.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Gra.ShowInfo">
+            <summary>
+            Wyświetla informacje o grze w konsoli.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Gra.Equals(WypozyczalniaGier.Gra)">
+            <summary>
+            Porównuje obecną grę z inną grą.
+            </summary>
+            <param name="other">Gra do porównania.</param>
+            <returns>
+            <c>true</c> jeśli tytuł i gatunek obu gier są takie same; w przeciwnym razie <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:WypozyczalniaGier.Gra.Clone">
+            <summary>
+            Tworzy nową kopię bieżącej gry.
+            </summary>
+            <returns>Nowa instancja klasy <see cref="T:WypozyczalniaGier.Gra"/> będąca kopią bieżącej instancji.</returns>
+        </member>
+        <member name="T:WypozyczalniaGier.Klient">
+            <summary>
+            Reprezentuje klienta wypożyczalni gier. Klient dziedziczy po klasie <see cref="T:WypozyczalniaGier.Osoba"/>
+            i implementuje interfejs <see cref="T:System.IComparable`1"/>.
+            </summary>
+        </member>
+        <member name="F:WypozyczalniaGier.Klient.nextId">
+            <summary>
+            Statyczny licznik do generowania unikalnych ID klientów.
+            </summary>
+        </member>
+        <member name="F:WypozyczalniaGier.Klient.liczbaWypozyczen">
+            <summary>
+            Liczba wypożyczeń dokonanych przez klienta.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Klient.IdKlienta">
+            <summary>
+            Unikalne ID klienta.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Klient.IsActive">
+            <summary>
+            Określa, czy klient ma aktywne wypożyczenie.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Klient.#ctor">
+            <summary>
+            Konstruktor domyślny dla klienta, inicjalizuje ID, aktywność oraz liczbę wypożyczeń.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Klient.#ctor(System.String,System.String)">
+            <summary>
+            Konstruktor, który przyjmuje imię i nazwisko klienta, dziedziczy po klasie <see cref="T:WypozyczalniaGier.Osoba"/>.
+            </summary>
+            <param name="imie">Imię klienta.</param>
+            <param name="nazwisko">Nazwisko klienta.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Klient.ShowInfo">
+            <summary>
+            Wyświetla informacje o kliencie, takie jak ID, imię, nazwisko oraz status aktywności.
+            Jeśli klient ma aktywne wypożyczenie, wyświetla liczbę wypożyczeń.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Klient.CompareTo(WypozyczalniaGier.Klient)">
+            <summary>
+            Porównuje dwóch klientów na podstawie nazwiska, a jeśli nazwiska są takie same, to na podstawie imienia.
+            Zaimplementowane z interfejsu <see cref="T:System.IComparable`1"/>.
+            </summary>
+            <param name="other">Inny klient, z którym porównujemy bieżącego klienta.</param>
+            <returns>Wartość ujemną, jeśli bieżący klient jest mniejszy, dodatnią, jeśli większy, lub 0, jeśli klienci są równi.</returns>
+        </member>
+        <member name="T:WypozyczalniaGier.Osoba">
+            <summary>
+            Abstrakcyjna klasa reprezentująca osobę, która posiada imię i nazwisko.
+            Służy jako baza do innych klas, które dziedziczą po niej (np. Klient).
+            </summary>
+        </member>
+        <member name="F:WypozyczalniaGier.Osoba.imie">
+            <summary>
+            Imię osoby.
+            </summary>
+        </member>
+        <member name="F:WypozyczalniaGier.Osoba.nazwisko">
+            <summary>
+            Nazwisko osoby.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Osoba.ImieNazwisko">
+            <summary>
+            Właściwość zwracająca pełne imię i nazwisko osoby w formacie: "Imię Nazwisko".
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Osoba.Imie">
+            <summary>
+            Właściwość do ustawiania i pobierania imienia osoby.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Osoba.Nazwisko">
+            <summary>
+            Właściwość do ustawiania i pobierania nazwiska osoby.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Osoba.#ctor">
+            <summary>
+            Konstruktor domyślny.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Osoba.#ctor(System.String,System.String)">
+            <summary>
+            Konstruktor inicjalizujący imię i nazwisko osoby.
+            </summary>
+            <param name="imie">Imię osoby.</param>
+            <param name="nazwisko">Nazwisko osoby.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Osoba.ShowInfo">
+            <summary>
+            Wyświetla informacje o osobie, takie jak jej imię i nazwisko.
+            </summary>
+        </member>
+        <member name="T:WypozyczalniaGier.Rezerwacja">
+            <summary>
+            Reprezentuje rezerwację gry przez klienta w wypożyczalni.
+            Zawiera informacje o grze, kliencie, dacie rezerwacji oraz dacie zwrotu.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Rezerwacja.GraR">
+            <summary>
+            Gra, która została zarezerwowana.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Rezerwacja.KlientR">
+            <summary>
+            Klient, który dokonał rezerwacji.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Rezerwacja.DataR">
+            <summary>
+            Data dokonania rezerwacji.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Rezerwacja.DataZ">
+            <summary>
+            Opcjonalna data zwrotu gry.
+            </summary>
+        </member>
+        <member name="F:WypozyczalniaGier.Rezerwacja.nextId">
+            <summary>
+            Statyczny licznik wykorzystywany do generowania unikalnych ID rezerwacji.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Rezerwacja.IdRezerwacji">
+            <summary>
+            Unikalne ID rezerwacji.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Rezerwacja.#ctor(WypozyczalniaGier.Gra,WypozyczalniaGier.Klient,System.DateTime,System.Nullable{System.DateTime})">
+            <summary>
+            Inicjalizuje nową rezerwację z informacjami o grze, kliencie, dacie rezerwacji oraz dacie zwrotu.
+            </summary>
+            <param name="gra">Gra, która została zarezerwowana.</param>
+            <param name="klient">Klient, który dokonał rezerwacji.</param>
+            <param name="dataR">Data dokonania rezerwacji.</param>
+            <param name="dataZ">Data zwrotu gry (może być pusta).</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Rezerwacja.ShowInfo">
+            <summary>
+            Wyświetla szczegóły rezerwacji, takie jak ID, tytuł gry, imię i nazwisko klienta oraz daty rezerwacji i zwrotu.
+            </summary>
+        </member>
+        <member name="T:WypozyczalniaGier.Wypozyczalnia">
+            <summary>
+            Reprezentuje wypożyczalnię gier, zawierającą gry, klientów i rezerwacje.
+            </summary>
+        </member>
+        <member name="F:WypozyczalniaGier.Wypozyczalnia.gry">
+            <summary>
+            Lista przechowująca dostępne gry.
+            </summary>
+        </member>
+        <member name="F:WypozyczalniaGier.Wypozyczalnia.klienci">
+            <summary>
+            Lista przechowująca zarejestrowanych klientów.
+            </summary>
+        </member>
+        <member name="F:WypozyczalniaGier.Wypozyczalnia.rezerwacje">
+            <summary>
+            Lista przechowująca wszystkie rezerwacje.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Wypozyczalnia.Klienci">
+            <summary>
+            Właściwość dostępu do listy klientów.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Wypozyczalnia.Gry">
+            <summary>
+            Właściwość dostępu do listy gier.
+            </summary>
+        </member>
+        <member name="P:WypozyczalniaGier.Wypozyczalnia.Rezerwacje">
+            <summary>
+            Właściwość dostępu do listy rezerwacji.
+            </summary>
+        </member>
+        <member name="T:WypozyczalniaGier.Wypozyczalnia.BrakEgzemplarzyException">
+            <summary>
+            Wyjątek rzucany, gdy brak dostępnych egzemplarzy gry.
+            </summary>
+        </member>
+        <member name="T:WypozyczalniaGier.Wypozyczalnia.ObiektNieznalezionyException">
+            <summary>
+            Wyjątek rzucany, gdy obiekt nie został znaleziony.
+            </summary>
+        </member>
+        <member name="T:WypozyczalniaGier.Wypozyczalnia.NiedostepnaAkcjaException">
+            <summary>
+            Wyjątek rzucany, gdy akcja jest niedostępna (np. próba oddania już oddanej gry).
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.DodajGre(WypozyczalniaGier.Gra)">
+            <summary>
+            Dodaje grę do listy gier w wypożyczalni.
+            </summary>
+            <param name="gra">Gra do dodania.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.DodajKlienta(WypozyczalniaGier.Klient)">
+            <summary>
+            Dodaje klienta do listy klientów w wypożyczalni.
+            </summary>
+            <param name="klient">Klient do dodania.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.DodajRezerwacje(WypozyczalniaGier.Rezerwacja)">
+            <summary>
+            Dodaje rezerwację, zmniejszając dostępność gry o 1.
+            </summary>
+            <param name="rezerwacja">Rezerwacja do dodania.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.ZwrocGre(System.Int32)">
+            <summary>
+            Zwraca grę, zwiększając jej dostępność o 1.
+            </summary>
+            <param name="id">ID rezerwacji do zwrócenia.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.UsunKlienta(WypozyczalniaGier.Klient)">
+            <summary>
+            Usuwa klienta z listy, jeśli nie ma aktywnych rezerwacji.
+            </summary>
+            <param name="klient">Klient do usunięcia.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.UsunGre(WypozyczalniaGier.Gra)">
+            <summary>
+            Usuwa grę z listy gier.
+            </summary>
+            <param name="gra">Gra do usunięcia.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.UsunRezerwacje(WypozyczalniaGier.Rezerwacja)">
+            <summary>
+            Usuwa rezerwację z listy rezerwacji.
+            </summary>
+            <param name="rezerwacja">Rezerwacja do usunięcia.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.ZnajdzKlienta(System.Int32)">
+            <summary>
+            Wyszukuje klienta po ID.
+            </summary>
+            <param name="idKlienta">ID klienta do wyszukania.</param>
+            <returns>Obiekt klienta.</returns>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.ZnajdzGre(System.String)">
+            <summary>
+            Wyszukuje grę po tytule.
+            </summary>
+            <param name="tytul">Tytuł gry do wyszukania.</param>
+            <returns>Obiekt gry.</returns>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.WyswietlGry">
+            <summary>
+            Wyświetla dostępne gry.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.WyswietlKlientow">
+            <summary>
+            Wyświetla zarejestrowanych klientów.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.WyswietlRezerwacje">
+            <summary>
+            Wyświetla listę wszystkich rezerwacji.
+            </summary>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.ZapiszXML(System.String)">
+            <summary>
+            Zapisuje dane wypożyczalni do pliku XML.
+            </summary>
+            <param name="nazwa">Nazwa pliku.</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.OdczytajXML(System.String)">
+            <summary>
+            Odczytuje dane wypożyczalni z pliku XML.
+            </summary>
+            <param name="nazwa">Nazwa pliku.</param>
+            <returns>Obiekt wypożyczalni lub null, jeśli plik nie istnieje.</returns>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.ZapiszDane(System.String)">
+            <summary>
+            Zapisuje dane wypożyczalni do pliku JSON.
+            </summary>
+            <param name="sciezka">Ścieżka do pliku (opcjonalna).</param>
+        </member>
+        <member name="M:WypozyczalniaGier.Wypozyczalnia.WczytajDane(System.String)">
+            <summary>
+            Wczytuje dane wypożyczalni z pliku JSON.
+            </summary>
+            <param name="sciezka">Ścieżka do pliku (opcjonalna).</param>
+        </member>
+    </members>
+</doc>
